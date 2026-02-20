@@ -1,39 +1,31 @@
 public class Passenger {
-    public int location;
     public int destination;
-    private boolean arrived;
+    private int start;
     public int id;
     private static int idGen = 1;
     //tostring
 
     public Passenger(){
-        location = (int)(Math.random() * 32 + 1);
         destination = (int)(Math.random()*32 + 1);
+        start = (int)(Math.random()*32 + 1);
+
+        while(destination == start){
+            destination = (int)(Math.random()*32 + 1);
+        }
         id = idGen;
-        arrived = false;
         idGen++;
     }
 
-    public boolean getArrivedP(){
-        return arrived;
-    }
-
-    public void isArrivedP(){
-        arrived = true;
+    public int getStartP(){
+        return start; 
     }
 
     public int getDestinationP(){
         return destination;
-    }
-    public int getLocationP(){
-        return location;
     }
 
     public int getIDP(){
         return id;
     }
 
-    public void moveP(int direction){
-        location += direction;
-    }
 }
