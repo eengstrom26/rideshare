@@ -18,7 +18,7 @@ public class Passenger {
         return arrived;
     }
 
-    public void isArrived(){
+    public void isArrivedP(){
         arrived = true;
     }
 

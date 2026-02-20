@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Car {
     private int direction;
     private int location;
@@ -18,5 +20,38 @@ public class Car {
         }
         id = idGen;
         idGen++;
+    }
+
+    public int getLocationC(){
+        return location;
+    }
+
+    public int getDirectionC(){
+        return direction;
+    }
+
+    public void isArrivedC(){
+        arrived = true;
+    }
+
+    public int getIDC(){
+        return id;
+    }
+
+    public int getPassengerCount(){
+        return passengerList.size();
+    }
+
+    public ArrayList<Passenger> getPassengerList(){
+        return passengerList;
+    }
+
+    public void move(){
+        if(!arrived){
+            location += direction;
+        }
+        if(location == destination){
+            arrived = true;
+        } //maybe add passenger dropoff here but idk
     }
 }
