@@ -10,9 +10,14 @@ public class Car {
     private static int idGen = 1;
 
     public Car(){
-        location = (int)(Math.random()* 32 + 1);
-        destination = (int)(Math.random() * 32 + 1);
+        location = (int)(Math.random()* 33 + 1);
+        destination = (int)(Math.random() * 33 + 1);
         passengerList = new ArrayList<Passenger>();
+
+        while(destination == location){
+            destination = (int)(Math.random()*33 + 1);
+        }
+
         if(location < destination){
             direction = 1;
         } else{
@@ -54,4 +59,7 @@ public class Car {
             arrived = true;
         } //maybe add passenger dropoff here but idk
     }
+
+
+
 }
