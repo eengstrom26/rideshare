@@ -10,12 +10,12 @@ public class Car {
     private static int idGen = 1;
 
     public Car(){
-        location = (int)(Math.random()* 33 + 1);
-        destination = (int)(Math.random() * 33 + 1);
+        location = (int)(Math.random()* 32 + 1);
+        destination = (int)(Math.random() * 32 + 1);
         passengerList = new ArrayList<Passenger>();
 
         while(destination == location){
-            destination = (int)(Math.random()*33 + 1);
+            destination = (int)(Math.random()*32 + 1);
         }
 
         if(location < destination){
@@ -51,13 +51,34 @@ public class Car {
         return passengerList;
     }
 
+    
+    public boolean hasSpace(){
+        if(passengerList.size() < 4){
+            return true;
+        }
+        return false;
+    }
+
+    public void dropOff(){
+        for(int i = 0; i < passengerList.size(); i++){
+            Passenger p = passengerList.get(i);
+            if(location == p.getDestinationP())
+                passengerList.remove(i);
+                i--;
+        }
+    }
+
+
     public void move(){
         if(!arrived){
             location += direction;
         }
+
+        dropOff();
+
         if(location == destination){
             arrived = true;
-        } //maybe add passenger dropoff here but idk
+        } //need to make everyone leave
     }
 
 
