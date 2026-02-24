@@ -59,6 +59,10 @@ public class Car {
         return false;
     }
 
+    
+
+
+
     public void dropOff(){
         for(int i = 0; i < passengerList.size(); i++){
             Passenger p = passengerList.get(i);
@@ -78,7 +82,13 @@ public class Car {
 
         if(location == destination){
             arrived = true;
-        } //need to make everyone leave
+
+            for(Passenger x : passengerList){
+                passengerList.remove(x);
+            }
+        } 
+
+        
     }
 
 
