@@ -53,7 +53,7 @@ public class Car {
 
     
     public boolean hasSpace(){
-        if(passengerList.size() < 4){
+        if(passengerList.size() < 3){
             return true;
         }
         return false;
@@ -66,9 +66,10 @@ public class Car {
     public void dropOff(){
         for(int i = 0; i < passengerList.size(); i++){
             Passenger p = passengerList.get(i);
-            if(location == p.getDestinationP())
+            if(location == p.getDestinationP()){
                 passengerList.remove(i);
                 i--;
+            }
         }
     }
 
@@ -83,8 +84,9 @@ public class Car {
         if(location == destination){
             arrived = true;
 
-            for(Passenger x : passengerList){
-                passengerList.remove(x);
+            for(int i = 0; i < passengerList.size(); i++){
+                passengerList.remove(i);
+                i--;
             }
         } 
 
