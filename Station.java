@@ -12,6 +12,10 @@ public class Station {
         completedPassengers = new ArrayList<Passenger>();
     }
 
+    public ArrayList<Passenger> getPassengerList(){
+        return passengerList;
+    }
+
     public void addPassenger(Passenger a){
         passengerList.add(a);
     }
@@ -26,6 +30,10 @@ public class Station {
 
     public void addCompletedPassengers(Passenger a){
         completedPassengers.add(a);
+    }
+
+    public ArrayList<Passenger> getCompletedPassengerList(){
+        return completedPassengers;
     }
 
 }
