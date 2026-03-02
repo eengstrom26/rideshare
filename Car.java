@@ -35,8 +35,8 @@ public class Car {
         return direction;
     }
 
-    public void isArrivedC(){
-        arrived = true;
+    public boolean isArrivedC(){
+        return arrived;
     }
 
     public int getIDC(){
@@ -59,7 +59,21 @@ public class Car {
         return false;
     }
 
-    
+    public void pickUpPassengers(ArrayList<Passenger> stationPassengers){
+        for(int i = 0; i < stationPassengers.size(); i++){
+            Passenger a = stationPassengers.get(i);
+            if(hasSpace()){
+                if(getDirectionC() == a.getDirectionP()){
+                    passengerList.add(a);
+                    stationPassengers.remove(i);
+                    i--;
+                }
+            } else{
+                break;
+            }
+        }
+
+        }
 
 
 
