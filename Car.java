@@ -10,12 +10,13 @@ public class Car {
     private static int idGen = 1;
 
     public Car(){
-        location = (int)(Math.random()* 32 + 1);
-        destination = (int)(Math.random() * 32 + 1);
+        location = (int)(Math.random()* 32);
+        destination = (int)(Math.random() * 32);
         passengerList = new ArrayList<Passenger>();
+        arrived = false;
 
         while(destination == location){
-            destination = (int)(Math.random()*32 + 1);
+            destination = (int)(Math.random()*32);
         }
 
         if(location < destination){
@@ -77,10 +78,16 @@ public class Car {
 
 
 
-    public void dropOff(){
+    public void dropOff(ArrayList<Station> stationList){
         for(int i = 0; i < passengerList.size(); i++){
             Passenger p = passengerList.get(i);
             if(location == p.getDestinationP()){
+                for(Station x : stationList){
+                    if(x.getLocation() == location){
+                        x.addCompletedPassengers(p);
+                        break;
+                    }
+                }
                 passengerList.remove(i);
                 i--;
             }
@@ -93,18 +100,14 @@ public class Car {
             location += direction;
         }
 
-        dropOff();
-
         if(location == destination){
             arrived = true;
-
-            for(int i = 0; i < passengerList.size(); i++){
-                passengerList.remove(i);
-                i--;
-            }
         } 
         
     }
 
+    public String toString(){
+        return "Car: " + id + " location: " + location + " destination: " + " passengers: " + passengerList.size();
+    }
 
 }

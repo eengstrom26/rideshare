@@ -6,11 +6,11 @@ public class Passenger {
     //tostring
 
     public Passenger(){
-        destination = (int)(Math.random()*32 + 1);
-        start = (int)(Math.random()*32 + 1);
+        destination = (int)(Math.random()*32);
+        start = (int)(Math.random()*32 );
 
         while(destination == start){
-            destination = (int)(Math.random()*32 + 1);
+            destination = (int)(Math.random()*32);
         }
         id = idGen;
         idGen++;

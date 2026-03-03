@@ -32,8 +32,12 @@ public class Station {
         completedPassengers.add(a);
     }
 
-    public ArrayList<Passenger> getCompletedPassengerList(){
+    public ArrayList<Passenger> getCompletedPassengers(){
         return completedPassengers;
+    }
+
+    public String toString(){
+        return "Station: " + location + " waiting: " + passengerList.size() + " completed: " + completedPassengers.size();
     }
 
 }
