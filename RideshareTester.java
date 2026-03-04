@@ -1,7 +1,7 @@
 public class RideshareTester {
     public static void main(String[] args) {
         
-        /* System.out.println("Testing 20 cars");
+         System.out.println("Testing 20 cars");
         
         int numCars1 = 20;
         int numPassengers1 = 50;
@@ -52,8 +52,8 @@ public class RideshareTester {
     }
     double average40 = total40/100;
     System.out.println("Average with 40 cars: " + average40);
-    }*/
-
+    }
+/*
     int numCars = 20;
     int numPassengers = 50; 
     
@@ -67,7 +67,6 @@ public class RideshareTester {
         for(Station a : road1.getStationList()){
             System.out.println(a);
     }
-}
+}*/
     
 }      
-}
